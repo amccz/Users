@@ -26,9 +26,29 @@
 
 <body>
 	<script> document.body.className+=' js' </script>
+	    
+	<div id="header">
+	    <h1><a href="{plink Homepage:}">Uživatelé</a></h1>
+	</div>
+
+	<div id="nav">
+	    <a href="{plink Register:register}">Registrovat</a> 
+	    {if $user->isLoggedIn()}
+	        {$user->getIdentity()->email}
+	        {if $user->getIdentity()->role != ""}
+	            ({$user->getIdentity()->role})
+	        {/if}
+	        <a href="{plink Sign:out}">Odhlásit</a>
+	    {else}
+	        <a href="{plink Sign:in}">Přihlásit</a>
+	    {/if}
+	</div>
 
 	<div n:foreach="$flashes as $flash" class="flash {$flash->type}">{$flash->message}</div>
 
-	{include #content}
+	<div id="content">
+	    {include #content}
+	</div>
+
 </body>
 </html>

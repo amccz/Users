@@ -56,6 +56,10 @@ class SignPresenter extends BasePresenter
 
 
 
+	public function actionIn(){
+		//Nette\Diagnostics\Debugger::dump("aaa");
+	}
+
 	public function actionOut()
 	{
 		$this->getUser()->logout();
