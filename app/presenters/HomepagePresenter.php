@@ -1,5 +1,7 @@
 <?php
 
+use Nette\Http as Http;
+
 class HomepagePresenter extends BasePresenter {
 
 	/** @var Users */
@@ -8,6 +10,12 @@ class HomepagePresenter extends BasePresenter {
 	protected function startup() {
         parent::startup();
         $this->users = $this->context->users;
+    }
+    
+    public function handleUsersJson() {
+        $all_users = array();
+        $all_users["aaData"] = $this->users->findAll()->orderBy('id')->fetchAll();
+        $this->sendResponse(new Nette\Application\Responses\JsonResponse($all_users));
     }
 
 	public function renderDefault() {

@@ -1,7 +1,10 @@
 {block content}
 
-<ul>
-{foreach $all_users as $user}
-        <li>{$user->email}</li>
-{/foreach}
-</ul>
+<table id="users">
+    <thead>        
+        <th>Jméno</th>
+        <th>Email</th>
+        <th>Role</th>
+    </thead>
+    <tbody></tbody>
+</table>    
