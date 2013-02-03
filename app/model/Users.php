@@ -12,7 +12,7 @@ class Users extends \Nette\Object {
     }
 
     public function findAll() {
-        return $this->db->select('*')->from($this->table);
+        return $this->db->select('id, email, name, role')->from($this->table);
     }
 
 
