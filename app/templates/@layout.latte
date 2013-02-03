@@ -36,7 +36,11 @@
             "sAjaxSource": {link usersJson!},
             "aoColumns": [		              
                 {"mData": "name"},
-                {"mData": "email"},
+                {"mData": "email", 
+                	"fnRender": function(o) {
+            			return "<a href='mailto:"+o.aData["email"]+"'>"+o.aData["email"]+"</a>";
+    				}
+				},
                 {"mData": "role"}
             ]
         });
